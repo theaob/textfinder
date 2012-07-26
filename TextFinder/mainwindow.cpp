@@ -2,13 +2,20 @@
 #include "ui_mainwindow.h"
 #include "QtCore/QFile"
 #include "QtCore/QTextStream"
+#include "QSystemTrayIcon"
+#include "QIcon"
+#include "QIconEngine"
+#include "QFileDialog"
+#include "QMessageBox"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    loadTextFile();
+    //loadTextFile();
+    //QSystemTrayIcon tray = new QSystemTrayIcon();
+    //tray.showMessage("Hello","World");
 }
 
 MainWindow::~MainWindow()
@@ -26,9 +33,9 @@ void MainWindow::on_findButton_clicked()
     }
 }
 
-void MainWindow::loadTextFile()
+void MainWindow::loadTextFile(const QString *name)
 {
-    QFile inputFile(":/input.txt");
+    QFile inputFile(*name);
     inputFile.open(QIODevice::ReadOnly);
 
     QTextStream in(&inputFile);
@@ -41,4 +48,18 @@ void MainWindow::loadTextFile()
     QTextCursor cursor = ui->textEdit->textCursor();
     cursor.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor, 1);
 
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"), "", tr("Text Files (*.txt);;C++ Files (*.cpp *.h);;All Files (*.*)"));
+    if (fileName != "")
+    {
+        QFile file(fileName);
+        if (!file.open(QIODevice::ReadOnly)) {
+            QMessageBox::critical(this, tr("Error"), tr("Could not open file"));
+            return;
+        }
+        loadTextFile(&fileName);
+    }
 }

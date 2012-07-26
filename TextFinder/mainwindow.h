@@ -18,9 +18,11 @@ public:
 private slots:
     void on_findButton_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
-    void loadTextFile();
+    void loadTextFile(const QString *name);
 };
 
 #endif // MAINWINDOW_H

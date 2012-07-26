@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Jul 26 10:30:43 2012
+** Created: Thu Jul 26 11:39:57 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -36,6 +36,7 @@ public:
     QLabel *label;
     QLineEdit *lineEdit;
     QPushButton *findButton;
+    QPushButton *pushButton;
     QTextEdit *textEdit;
 
     void setupUi(QMainWindow *MainWindow)
@@ -43,8 +44,22 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(400, 300);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
+        MainWindow->setSizePolicy(sizePolicy);
+        MainWindow->setMinimumSize(QSize(400, 300));
+        MainWindow->setAutoFillBackground(false);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        QSizePolicy sizePolicy1(QSizePolicy::Maximum, QSizePolicy::Maximum);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(centralWidget->sizePolicy().hasHeightForWidth());
+        centralWidget->setSizePolicy(sizePolicy1);
+        centralWidget->setMinimumSize(QSize(400, 300));
+        centralWidget->setAutoFillBackground(false);
         widget = new QWidget(centralWidget);
         widget->setObjectName(QString::fromUtf8("widget"));
         widget->setGeometry(QRect(10, 10, 381, 281));
@@ -71,14 +86,25 @@ public:
 
         horizontalLayout->addWidget(findButton);
 
+        pushButton = new QPushButton(widget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+
+        horizontalLayout->addWidget(pushButton);
+
+        horizontalLayout->setStretch(0, 1);
+        horizontalLayout->setStretch(1, 5);
+        horizontalLayout->setStretch(2, 1);
 
         verticalLayout->addLayout(horizontalLayout);
 
         textEdit = new QTextEdit(widget);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        textEdit->setSizeIncrement(QSize(1, 1));
 
         verticalLayout->addWidget(textEdit);
 
+        verticalLayout->setStretch(0, 1);
+        verticalLayout->setStretch(1, 10);
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
@@ -91,6 +117,7 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "TextFinder", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindow", "Keyword", 0, QApplication::UnicodeUTF8));
         findButton->setText(QApplication::translate("MainWindow", "Find", 0, QApplication::UnicodeUTF8));
+        pushButton->setText(QApplication::translate("MainWindow", "Open File", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
