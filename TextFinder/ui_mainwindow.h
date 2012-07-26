@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Jul 26 10:16:38 2012
+** Created: Thu Jul 26 10:30:43 2012
 **      by: Qt User Interface Compiler version 4.8.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -88,7 +88,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "TextFinder", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("MainWindow", "Keyword", 0, QApplication::UnicodeUTF8));
         findButton->setText(QApplication::translate("MainWindow", "Find", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

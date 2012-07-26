@@ -19,7 +19,11 @@ MainWindow::~MainWindow()
 void MainWindow::on_findButton_clicked()
 {
     QString searchString = ui->lineEdit->text();
-    ui->textEdit->find(searchString, QTextDocument::FindWholeWords);
+
+    if(!ui->textEdit->find(searchString, QTextDocument::FindWholeWords))
+    {
+        ui->textEdit->find(searchString, QTextDocument::FindBackward);
+    }
 }
 
 void MainWindow::loadTextFile()
